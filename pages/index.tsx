@@ -21,7 +21,11 @@ export async function getStaticProps() {
   };
 }
 
-function Home({ intro }): JSX.Element {
+interface IProps {
+  intro: string;
+}
+
+function Home({ intro } : IProps) {
   return (
     <>
       <Head>

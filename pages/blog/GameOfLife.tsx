@@ -147,7 +147,7 @@ function GameOfLife() {
                 aria-label="Default"
                 // valueLabelDisplay="auto"
                 value={speed}
-                onChange={(event, newValue) => setSpeed(newValue)}
+                onChange={(e:any) => setSpeed(e.target.value)}
               />
             </Box>
             <Box width="50%" margin="1%">
@@ -159,7 +159,7 @@ function GameOfLife() {
                 aria-label="Default"
                 valueLabelDisplay="auto"
                 value={randPopDenc}
-                onChange={(event, newValue) => setRandPopDenc(newValue)}
+                onChange={(event, newValue:any) => setRandPopDenc(newValue)}
                 disabled={running}
               />
             </Box>

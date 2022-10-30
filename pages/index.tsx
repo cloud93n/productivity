@@ -11,6 +11,13 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import ReactMarkdown from "react-markdown";
 import { getMarkdownContent } from "@utils/mdx";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemButton from "@mui/material/ListItemButton";
+import Paper from "@mui/material/Paper";
 
 export async function getStaticProps() {
   const { content: intro } = getMarkdownContent("intro");
@@ -25,7 +32,7 @@ interface IProps {
   intro: string;
 }
 
-function Home({ intro } : IProps) {
+function Home({ intro }: IProps) {
   return (
     <>
       <Head>
@@ -45,8 +52,35 @@ function Home({ intro } : IProps) {
           </CardContent>
         </Card>
       </Box>
-      <Box display="flex" justifyContent="center" minHeight="50vh">
-        <Link href="blog/GameOfLife">Game Of Life</Link>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="flex-start"
+        minHeight="50vh"
+      >
+        <Box sx={{ bgcolor: "background.paper" }}>
+          <List>
+            <ListItem disablePadding>
+              <ListItemButton
+                sx={{ textAlign: "center" }}
+                href="blog/GameOfLife"
+              >
+                <ListItemText primary="Conway's Game Of Life" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton
+                sx={{ textAlign: "center" }}
+                component="a"
+                href="https://todo-app-f6965.web.app"
+              >
+                <ListItemText primary="Todo List" />
+              </ListItemButton>
+            </ListItem>
+          </List>
+          {/* <Link href="blog/GameOfLife">Game Of Life</Link>
+        <Link href="https://todo-app-f6965.web.app">Todo-List</Link> */}
+        </Box>
       </Box>
     </>
   );
